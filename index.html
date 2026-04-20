@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astral Planner | Daily Life Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sky-overlay" aria-hidden="true"></div>
+
+    <header class="hero panel">
+      <p class="tag">Genshin-inspired daily life planner</p>
+      <h1>Astral Planner</h1>
+      <p class="subtitle">
+        Organize real-life quests, routines, and focus sessions in a dark fantasy dashboard.
+      </p>
+      <div class="hero-chips">
+        <span>Quest Tracker</span>
+        <span>Ritual Streaks</span>
+        <span>Timebox Focus</span>
+        <span>Progress Insights</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel clock-card">
+        <h2>Clock Shrine</h2>
+        <p class="muted" id="dateLabel">--</p>
+        <div class="clock" id="clock">00:00:00</div>
+
+        <div class="countdown">
+          <div class="label-row">
+            <p>Day Progress</p>
+            <strong id="dayPercent">0%</strong>
+          </div>
+          <div class="progress-track"><div id="dayProgress"></div></div>
+        </div>
+
+        <div class="focus-box">
+          <p class="muted">Focus Session</p>
+          <div class="focus-time" id="focusTime">25:00</div>
+          <div class="focus-actions">
+            <button type="button" id="startFocus">Start</button>
+            <button type="button" id="resetFocus" class="ghost">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel tasks-card">
+        <div class="card-head">
+          <h2>Today's Quests</h2>
+          <button id="addTask" type="button">+ Add Quest</button>
+        </div>
+
+        <div class="task-input-row">
+          <input id="taskInput" type="text" placeholder="Enter quest objective..." />
+          <select id="taskPriority" aria-label="Task priority">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="panel dashboard-card">
+        <h2>Adventurer Stats</h2>
+        <div class="stat"><span>Completed Today</span><strong id="doneCount">0</strong></div>
+        <div class="stat"><span>Open Quests</span><strong id="openCount">0</strong></div>
+        <div class="stat"><span>Completion Rate</span><strong id="completionRate">0%</strong></div>
+        <div class="stat"><span>High Priority Left</span><strong id="highRemaining">0</strong></div>
+
+        <p class="quote" id="dailyQuote">“Small steps today become legendary progress tomorrow.”</p>
+      </section>
+
+      <section class="panel habit-card">
+        <h2>Daily Rituals</h2>
+        <div class="habit-list" id="habitList">
+          <label><input type="checkbox" class="habit" data-id="water" /> Hydration</label>
+          <label><input type="checkbox" class="habit" data-id="exercise" /> 30m Exercise</label>
+          <label><input type="checkbox" class="habit" data-id="mindful" /> Mindful Break</label>
+          <label><input type="checkbox" class="habit" data-id="journal" /> Journal Entry</label>
+        </div>
+        <p class="hint">Complete all rituals to maintain your streak energy.</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
